@@ -1,0 +1,42 @@
+# Import necessary modules
+from flask import Flask, render_template_string, request, send_file, url_for
+import pyttsx3
+import os
+
+# Initialize Flask app and pyttsx3 engine
+app = Flask(__name__)
+engine = pyttsx3.init()
+
+# Mock eBook contents generated using AI
+ebooks = {
+    # eBook ID and its content
+    "1": "From Home to Hope - In the ruins of Gaza, twelve-year-old Youssef and his family find hope and resilience in their unity and dreams of rebuilding their lives.",
+    "2": "Mystery of the Lost Village - A group of friends discovers an abandoned village with a hidden secret.",
+    "3": "Journey to the Stars - An epic adventure of a young astronaut exploring unknown planets.",
+    "4": "The Enchanted Forest - A magical tale of a young girl who finds a secret world in the forest.",
+    "5": "The Time Traveler - A scientist invents a time machine and experiences history firsthand."
+}
+
+# Route to display the homepage
+@app.route('/')
+def index():
+    # Render the HTML template with eBook data
+    return render_template_string("""
+    <!DOCTYPE html>
+    ...
+    """, ebooks=ebooks)
+
+# Route for text-to-speech conversion
+@app.route('/tts')
+def tts():
+    text = request.args.get('text', '')
+    if text:
+        output_file = 'story.mp3'
+        engine.save_to_file(text, output_file)
+        engine.runAndWait()
+        return send_file(output_file, as_attachment=False, download_name='story.mp3', mimetype='audio/mp3')
+    return "Text to speech conversion failed", 400
+
+# Run the Flask app
+if __name__ == '__main__':
+    app.run(debug=True)
