@@ -1,0 +1,41 @@
+body {
+    background-color: #f5efef;
+    background-image: url('images/sign2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #0c0c0c;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2em;
+    color: brown;
+}
+
+a {
+    font-size: 1.2em;
+    color: brown;
+}
+
+button {
+    margin-top: 10px;
+    display: block;
+}
+h1 {
+    font-size: 1.2em;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    margin: 50;
+    background-image: url('images/bird.jpg'); /* Apply background image to h1 and h3 */
+    background-repeat: no-repeat;
+
+
+background-position: left; /* Position the background image on the left */
+background-size: auto 400%; margin-bottom: 60px;/* Adjust the background size to cover the full height of the h1 element */
+}
+
+
