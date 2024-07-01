@@ -95,7 +95,7 @@ def index():
         <style>
             body {
                 background-color: #f5efef;
-                background-image: url('{{ url_for('static', filename='images/play.gif') }}');
+                background-image: url('{{ url_for('images/play.gif') }}');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
@@ -236,7 +236,7 @@ def index():
                                   
         <div style="position: fixed; top: 0; left: 0; padding: 10px;">
             <a href="https://www.audible.com/ep/2book?twobooketest=true">
-                <img src="{{ url_for('static', filename='images/bird.jpg') }}" alt="bird" style="height: 40px; width: 100px;">
+                <img src="{{ url_for('images/bird.jpg') }}" alt="bird" style="height: 40px; width: 100px;">
             </a>
         </div>
         <h1 style="margin-left: 120px; font-size: 2em; color: brown;">
@@ -246,7 +246,7 @@ def index():
             {% for id, title in ebooks.items() %}
             <div class="story-container" id="story-container{{ id }}">
                 <a href="#" onclick="downloadStory('{{ id }}');" style="margin-right: 10px;">
-                    <img src="{{ url_for('static', filename='images/my.jpg') }}" alt="eBook" style="height: 60px; width: 60px;">
+                    <img src="{{ url_for('images/my.jpg') }}" alt="eBook" style="height: 60px; width: 60px;">
                 </a>
                 <span class="story-title">{{ title.split('\\n')[0] }}</span>
             </div>
@@ -258,8 +258,8 @@ def index():
             <audio id="audio-story{{ id }}" controls></audio>
             <button onclick="playAudio('{{ id }}')" style="background-color: blue; color: white;">LISTEN</button>
             <div style="margin-top: 10px;">
-                <a href="#" onclick="shareOnFacebook('{{ id }}');"><img src="{{ url_for('static', filename='images/face.jpg') }}" alt="Share on Facebook" style="height: 30px; width: 30px;"></a>
-                <a href="#" onclick="shareOnTwitter('{{ id }}');"><img src="{{ url_for('static', filename='images/twitter.jpg') }}" alt="Share on Twitter" style="height: 30px; width: 30px;"></a>
+                <a href="#" onclick="shareOnFacebook('{{ id }}');"><img src="{{ url_for('images/face.jpg') }}" alt="Share on Facebook" style="height: 30px; width: 30px;"></a>
+                <a href="#" onclick="shareOnTwitter('{{ id }}');"><img src="{{ url_for('images/twitter.jpg') }}" alt="Share on Twitter" style="height: 30px; width: 30px;"></a>
             </div>
             <div class="comment-section">
                 {% for comment in comments[id] %}
